@@ -54,7 +54,35 @@
       <h1>Conference Registration Form</h1>
       <p>Required Item (*)</p>
       <form action="http://www.example.com/cg/register" method="POST">
-      
+      <label for="title">Title</label>
+      <input type="text" name="title">
+
+      <label for="firstName">First Name</label>
+      <input type="text" name="firstName" required>
+
+      <label for="lastName">Last Name</label>
+      <input type="text" name="lastName" required>
+
+      <label for="address">Address</label>
+      <textarea name="address" id="address" cols="30" rows="10" required></textarea>
+
+      <label for="group">Company or University</label>
+      <input type="text" name="group">
+
+      <label for="email">E-mail</label>
+      <input type="email" name="email" required>
+
+      <label for="phoneNumber">Phone Number</label>
+      <input type="text" name="phoneNumber" required>
+
+      <label for="membership">ACGIP Membership Number</label>
+      <input type="text" name="membership">
+
+      <label for="acgipID">Registration Category</label>
+      <select name="acgipID" id="idBox">
+         <option value=""></option>
+
+      </select>
       
       
       </form>
