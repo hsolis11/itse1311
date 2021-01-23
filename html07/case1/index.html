@@ -56,7 +56,7 @@
       <form action="http://www.example.com/cg/register" method="POST">
       
       <label for="title">Title</label>
-      <input type="text" name="title" id="titleBox">
+      <input type="text" name="title" list="titleBox" id="titleBox">
 
       <label for="firstName">First Name</label>
       <input type="text" name="firstName" id="fnBox" required>
@@ -74,13 +74,35 @@
       <input type="email" name="email" id="mailBox" required>
 
       <label for="phoneNumber">Phone Number</label>
-      <input type="tel" name="phoneNumber" id="phoneBox" placeholder="(nnn) nnn-nnnn" required>
+      <input type="tel" name="phoneNumber" id="phoneBox" placeholder="(nnn) nnn-nnnn" pattern="^\d{10}$|^(\(\d{3}\)\s*)?\d{3}[\s-]?\d{4}$" required>
 
       <label for="acgipID">ACGIP Membership Number</label>
-      <input type="text" name="acgipID" id="idBox" placeholder="acgip-nnnnnn">
+      <input type="text" name="acgipID" id="idBox" placeholder="acgip-nnnnnn" pattern="^acgip\-\d{6}$">
+
+      <label for="regList">Registration Category</label>
+      <select name="regList" id="regList">
+         <option value="member">ACGIP Member ($695)</option>
+         <option value="nonmember">Non-Member ($795)</option>
+         <option value="student">Student ($310)</option>
+         <option value="poster">Poster ($95)</option>
+         <option value="guest">Guest ($35)</option>
+      </select>
       
+      <datalist id="titleBox" name="titleList">
+         <option value="Mr.">
+         <option value="Mrs.">
+         <option value="Ms.">
+         <option value="Prof.">
+         <option value="Dr.">
+         <option value="Assist. Prof.">
+         <option value="Assoc. Prof.">
+      </datalist>
+
+      <p>
+         <button value="submit">continue</button>
+      </p>
       </form>
-         
+      
       
    </section>
    
