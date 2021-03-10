@@ -5,8 +5,8 @@
    Tutorial 10
    Case Problem 1
 
-   Author: 
-   Date:   
+   Author: Hector Solis
+   Date:   03/10/2021
    
    Filename: tc_cart.js
 	
