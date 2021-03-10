@@ -4,10 +4,10 @@
    New Perspectives on HTML5 and CSS3, 7th Edition
    Tutorial 10
    Case Problem 1
-  
+   
    Author: Hector Solis
    Date:   03/10/2021
-     
+   
    Filename: tc_order.js  
 
    The item array contains the ID numbers of the items ordered by the customer
@@ -17,3 +17,9 @@
    
 */
 
+let item = ['10582', '23015', '41807', '10041']
+let itemDescription = ['1975 Green Bay Packers Football (signed), Item 10582',
+                        'Tom Landry 1955 Football Card (unsigned), Item 23015',
+                        '1916 Army-Navy Game, Framed Photo (signed), Item 41807',
+                        'Protective Card Sheets, Item 10041']
+let itemQty = [1, 1, 1, 4]
