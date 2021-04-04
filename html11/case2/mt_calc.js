@@ -65,7 +65,9 @@ function buttonClick(e){
          console.log("last", calcValue);
          break;
       case "prev":
+         console.log(calcValue);
          calcValue = lastEq(calcValue);
+         console.log(calcValue);
          break;
       default:
          calcValue = calcValue + buttonValue;
@@ -92,7 +94,9 @@ function calcKeys(e){
          console.log("after", calcValue);
          break;
       case "ArrowUp":
-         calcValue = lastEq(calcWindow.value);
+         console.log(calcValue);
+         calcValue = calcValue + lastEq(calcWindow.value);
+         console.log(calcValue);
          break;
       default:
          calcValue = calcValue + buttonValue;
