@@ -5,12 +5,10 @@
    Tutorial 14
    Case Problem 2
 
-   Author: 
-   Date:   
+   Author: Hector Solis
+   Date:   05/04/2021
    
    Filename: cc_staff.js
-   
-      
 */
 
 
@@ -42,6 +40,16 @@ var searchResult = {
 document.getElementById("searchButton").addEventListener("click", function() {
    var tableBody = document.querySelector("table#staffTable tbody");
    var tableCaption = document.querySelector("table#staffTable caption");
+
+   tableBody.prototype.removeChildren = function() {
+      while (this.firstChild) {
+         this.removeChild(this.firstChild);
+      }
+   };
+
+   searchResult['employees'] = [];
+
+   
 
 });
 
