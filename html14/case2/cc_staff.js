@@ -5,8 +5,8 @@
    Tutorial 14
    Case Problem 2
 
-   Author: 
-   Date:   
+   Author: Hector Solis
+   Date:   05/12/2021
    
    Filename: cc_staff.js
    
@@ -43,6 +43,55 @@ document.getElementById("searchButton").addEventListener("click", function() {
    var tableBody = document.querySelector("table#staffTable tbody");
    var tableCaption = document.querySelector("table#staffTable caption");
 
+   tableBody.removeChildren();
+
+   searchResult.employees = [];
+
+   staff.directory.forEach(function(record){
+      var nameSearch = document.getElementById("nameSearch").value;
+      var nameSearchType = document.getElementById("nameSearchType").selectedValue();
+      
+      switch(nameSearchType){
+
+         case "contains":
+            var nameRegExp = new RegExp(`${nameSearch}`, "i");
+            break;
+         case "beginsWith":
+            var nameRegExp = new RegExp(`^${nameSearch}`, "i");
+            break;
+         case "exact":
+            var nameRegExp = new RegExp(`^${nameSearch}$`, "i")
+            break;
+      }
+
+      var foundName = nameRegExp.test(record.lastName);
+
+
+      var positionSearch = document.getElementById("positionSearch").value;
+      var positionSearchType = document.getElementById("positionSearchType").selectedValue();
+
+      switch(positionSearchType){
+
+         case "contains":
+            var positionRegExp = new RegExp(`${positionSearch}`, "i");
+            break;
+         case "beginsWith":
+            var positionRegExp = new RegExp(`^${positionSearch}`, "i");
+            break;
+         case "exact":
+            var positionRegExp = new RegExp(`^${positionSearch}$`, "i");
+            break;
+      }
+
+      var foundPosition = positionRegExp.test(record.position);
+
+      if(foundName || foundPosition){
+         searchResult.employees.push(record);
+      }
+
+   
+   })
+   console.log(searchResult.employees);
 });
 
 
