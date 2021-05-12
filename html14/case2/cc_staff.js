@@ -85,20 +85,33 @@ document.getElementById("searchButton").addEventListener("click", function() {
 
       var foundPosition = positionRegExp.test(record.position);
 
-      if(foundName || foundPosition){
+
+      var deptSearch = document.getElementById("deptSearch").selectedValue();
+
+      var deptFound = deptSearch == "" || deptSearch == record.dept;
+
+
+      if(foundName && foundPosition && deptFound){
          searchResult.employees.push(record);
       }
-
-   
    })
-   console.log(searchResult.employees);
+   
+   document.getElementsByTagName("caption")[0].innerHTML = `${searchResult.employees.length} records found`;
+   searchResult.sortById;
+
+   var table = document.getElementById("staffTable");
+   
+   searchResult.employees.forEach(function(employee){
+      document.getElementsByTagName("tbody")[0].innerHTML +=  `<tr>
+                                                            <td><img src="/images/${employee.photo}" /></td>
+                                                            <td>${employee.firstName} ${employee.lastName}</td>
+                                                            <td>${employee.dept}</td>
+                                                            <td>${employee.position}</td>
+                                                            <td><a href="mailto:${employee.email}">${employee.email}</a></td>
+                                                            <td><a href="tel:${employee.phone}">${employee.phone}</a></td>
+                                                            </tr>`;
+   })
 });
-
-
-
-
-
-
 
 
 /* --- Methods added to native objects ---*/
