@@ -46,10 +46,64 @@ function init(){
 }
 
 
-function buttonClick(){
+function buttonClick(e){
 
-   var calcValue = document.getElementById("calcWindow");
+   var calcValue = document.getElementById("calcWindow").value;
+   var calcDecimal = document.getElementById("decimals").value;
+   var buttonValue = e.target.value;
 
+   switch(buttonValue){
+      case "del":
+         calcValue = "";
+         break;
+      case "bksp":
+         calcValue = eraseChar(calcValue);
+         break;
+      case "enter":
+         console.log("first ", calcValue, calcDecimal);
+         calcValue = " = " + evalEq(calcValue, calcDecimal) + "\n";
+         console.log("last", calcValue);
+         break;
+      case "prev":
+         console.log(calcValue);
+         calcValue = lastEq(calcValue);
+         console.log(calcValue);
+         break;
+      default:
+         calcValue = calcValue + buttonValue;
+   }// end switch
+
+   // document.getElementById("calcWindow").setAttribute("value", calcValue);
+   document.getElementById("calcWindow").value = calcValue;
+   document.getElementById("calcWindow").focus();
+}
+
+
+function calcKeys(e){
+
+   var calcValue = document.getElementById("calcWindow").value;
+   var calcDecimal = document.getElementById("decimals").value;   
+
+   switch(e.key){
+      case "Delete":
+         calcValue = "";
+         break;
+      case "Enter":
+         console.log("before", calcValue, calcDecimal);
+         calcValue = " = " + evalEq(calcValue, calcDecimal);
+         console.log("after", calcValue);
+         break;
+      case "ArrowUp":
+         console.log(calcValue);
+         calcValue = calcValue + lastEq(calcWindow.value);
+         console.log(calcValue);
+         break;
+      default:
+         calcValue = calcValue + buttonValue;
+         e.preventDefault();
+   }
+
+   document.getElementById("calcWindow").value = calcValue;
 }
 
 
